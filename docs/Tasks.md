@@ -1,0 +1,141 @@
+# Divisão de Tarefas — Projeto Unidade II (MiniLang)
+
+**Disciplina:** Linguagens Formais e Compiladores
+**Repositório:** minilang-compilador
+
+## Integrantes
+
+| Sigla | Integrante | Frente principal |
+|---|---|---|
+| **AL** | Alexandre Afonso Silva Virgens | Análise sintática (parser + AST) |
+| **DA** | Davi Santana Loz | Análise semântica (interpretador + erros) |
+| **MA** | Manuel Luan Santos Assis | Definição formal + análise léxica |
+
+### Regras de trabalho
+
+1. **Cada um implementa a sua frente e revisa a de outro colega.** Na arguição, que é individual, qualquer integrante pode ser perguntado sobre qualquer parte. Por isso todo item tem um responsável **e** um revisor.
+2. **Cada um escreve os testes do próprio módulo** e a seção do relatório correspondente.
+3. **Um commit por fase, feito pelo próprio responsável.** O histórico do Git é evidência de quem fez o quê (item g).
+4. **O uso de IA em cada tarefa é registrado** no diário de bordo, na coluna "IA" abaixo e no `declaracao_IA.md`.
+
+---
+
+## Itens do enunciado
+
+Status: ⬜ não iniciado · 🟡 em andamento · 🔍 em revisão · ✅ concluído
+
+### Item a — Definição formal da linguagem (1,0)
+| Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
+|---|---|---|---|---|---|---|
+| Alfabeto, EBNF, tabela de precedência/associatividade | `docs/gramatica.md` | MA | AL | 🔍 | Sim (Claude Sonnet 5.5, rascunho) | `0203694` |
+| 5 exemplos comentados (válido + inválido léxico/sintático/semântico) | `docs/gramatica.md` | MA | DA | 🔍 | Sim | `0203694` |
+| Programa válido com while e for | `exemplos/programa_valido.ml` | MA | DA | ⬜ | | |
+| Programa inválido com laço mal formado | `exemplos/programa_invalido.ml` | MA | AL | ⬜ | | |
+| Fechar as decisões em aberto (`/* */`, comparação não associativa, sem menos unário) | `docs/gramatica.md` | **Todos** | — | ⬜ | | |
+
+### Item b — Lexer (1,0)
+| Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
+|---|---|---|---|---|---|---|
+| Implementação do lexer | `src/lexer.py` | MA | AL | ⬜ | | |
+| Tabela de tokens e tabela de transições (seção "Lexer") | `docs/gramatica.md` | MA | AL | 🔍 | Sim | `0203694` |
+| Testes válidos | `tests/validos/test_lexer_valido.py` | MA | DA | ⬜ | | |
+| Testes inválidos (`@`, `1x`, comentário não fechado) | `tests/invalidos/test_lexer_invalido.py` | MA | DA | ⬜ | | |
+| Relatório: seção "Análise léxica" (ER → AFN → AFD → lexer) | `docs/relatorio.pdf` | MA | AL | ⬜ | | |
+
+### Item c — Parser descendente recursivo (1,0)
+| Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
+|---|---|---|---|---|---|---|
+| Implementação do parser | `src/parser.py` | AL | MA | ⬜ | | |
+| Testes válidos (incluindo while e for) | `tests/validos/test_parser_valido.py` | AL | MA | ⬜ | | |
+| Testes inválidos (incluindo laço mal formado) | `tests/invalidos/test_parser_invalido.py` | AL | MA | ⬜ | | |
+| Relatório: árvores de `1+2*3`, `(1+2)*3`, while e for, mais a justificativa formal | `docs/relatorio.pdf` | AL | DA | ⬜ | | |
+| Relatório: comparação com outra técnica (LL(1) com tabela / LR) | `docs/relatorio.pdf` | AL | MA | ⬜ | | |
+
+### Item d — AST (1,0)
+| Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
+|---|---|---|---|---|---|---|
+| Classes da AST (incluindo While e For) — **fazer primeiro, porque o interpretador depende delas** | `src/ast_nodes.py` | AL | DA | ⬜ | | |
+| Testes da AST (`1+2*3`, for com 3 cláusulas) | `tests/validos/test_ast.py` | AL | DA | ⬜ | | |
+| Relatório: diagrama da AST e justificativa árvore concreta × AST | `docs/relatorio.pdf` | AL | DA | ⬜ | | |
+
+### Item e — Interpretador (1,0)
+| Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
+|---|---|---|---|---|---|---|
+| Tabela de símbolos (inserção e busca) | `src/interpreter.py` | DA | AL | ⬜ | | |
+| Interpretador sobre a AST (incluindo while e for) | `src/interpreter.py` | DA | AL | ⬜ | | |
+| Testes válidos | `tests/validos/test_interpreter_valido.py` | DA | MA | ⬜ | | |
+| Testes inválidos (condição não booleana, variável não definida) | `tests/invalidos/test_interpreter_invalido.py` | DA | MA | ⬜ | | |
+| Relatório: tabela de símbolos, semântica operacional e justificativa | `docs/relatorio.pdf` | DA | AL | ⬜ | | |
+
+### Item f — Catálogo de erros (1,0)
+| Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
+|---|---|---|---|---|---|---|
+| Padronizar as mensagens de erro (linha/coluna) nas três fases | `src/*.py` | DA | Todos | ⬜ | | |
+| Catálogo: tabela com mensagem, causa e exemplo (≥3 por categoria) | `docs/relatorio.pdf` | DA | MA | ⬜ | | |
+| Comentário com o resultado esperado no topo de cada teste inválido | `tests/invalidos/` | Cada dono do arquivo | DA | ⬜ | | |
+| Justificativa da estratégia de recuperação/diagnóstico | `docs/relatorio.pdf` | DA | AL | ⬜ | | |
+
+### Item g — Testes, diário e relatório (1,0)
+| Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
+|---|---|---|---|---|---|---|
+| Testes de laço: executa 0, 1 e N vezes; for alterando a variável de controle | `tests/validos/test_lacos.py` | DA | AL | ⬜ | | |
+| Laço infinito com limite de iterações | `tests/invalidos/test_laco_infinito.py` | DA | MA | ⬜ | | |
+| Diário de bordo (cada um registra a própria entrada) | `docs/diario_de_bordo.md` | **Todos** | — | 🟡 | | `fd6ed77` |
+| Relatório: pergunta de pesquisa + 3 a 4 exemplos de acerto/falha da IA (cada um traz pelo menos 1) | `docs/relatorio.pdf` | **Todos** | — | ⬜ | | |
+| Relatório: fundamentação teórica | `docs/relatorio.pdf` | MA | Todos | ⬜ | | |
+| Montagem final do PDF (2 a 3 páginas na parte de análise) | `docs/relatorio.pdf` | AL | Todos | ⬜ | | |
+
+### Item h — Vídeo e arguição (1,0)
+| Tarefa | Responsável | Status |
+|---|---|---|
+| Visão geral da arquitetura (fases e dependências) | MA | ⬜ |
+| Demo sem cortes: `programa_valido.ml` e `programa_invalido.ml` | DA | ⬜ |
+| Trecho gerado por IA (aceito, reescrito ou descartado) e o conceito teórico envolvido | AL | ⬜ |
+| Gravação/edição e entrega em `docs/apresentacao.mp4` ou link no README | **Todos** (todos falam e aparecem) | ⬜ |
+| Ensaio da arguição: cada um explica o módulo que **revisou** | **Todos** | ⬜ |
+
+### Itens gerais
+| Tarefa | Arquivo | Responsável | Status |
+|---|---|---|---|
+| README: como executar, integrantes, ferramenta de IA | `README.md` | AL | ⬜ |
+| Declaração de IA: ferramenta/modelo, etapas e finalidade | `declaracao_IA.md` | **Todos** (cada um declara o próprio uso) | ⬜ |
+| Dependências (pytest) | `requirements.txt` | MA | ⬜ |
+
+---
+
+## Cronograma
+
+O vídeo deve ser entregue **2 dias antes da arguição**. Como o sorteio pode cair em 24/11, o planejamento considera o pior caso: **vídeo até 22/11**.
+
+| Data | Meta | Quem |
+|---|---|---|
+| 12–14/11 | Estrutura do repositório, rascunho da gramática | MA ✅ |
+| 17/11 (ter) | Revisar a gramática e fechar as decisões em aberto · `ast_nodes.py` | Todos · AL |
+| 18/11 (qua) | Lexer e testes · tabela de símbolos | MA · DA |
+| 19/11 (qui) | Parser e testes · interpretador | AL · DA |
+| 20/11 (sex) | Integração, testes de laço, catálogo de erros, exemplos `.ml` | Todos |
+| 21/11 (sáb) | Relatório em PDF, README, declaração de IA | Todos |
+| 22/11 (dom) | **Gravar e entregar o vídeo** | Todos |
+| 23/11 (seg) | Ensaio da arguição e revisão final | Todos |
+| 24/11 ou 01/12 | Apresentação | Todos |
+
+---
+
+## Registro de contribuições
+
+Preencher ao concluir cada tarefa. É a evidência de quem fez o quê.
+
+| Data | Integrante | O que foi feito | Commit | Uso de IA (ferramenta e para quê) | Revisado por |
+|---|---|---|---|---|---|
+| 12/11/2026 | MA | Estrutura inicial do repositório e README | `4a54bb8`, `567b499` | — | |
+| 14/11/2026 | MA | Rascunho de tokens, EBNF, tabela de transições e exemplos | `0203694` | Claude Sonnet 5.5 — rascunho inicial | |
+| 14/11/2026 | MA | Primeira entrada do diário de bordo | `fd6ed77` | — | |
+| | | | | | |
+
+## Resumo por integrante
+
+| Integrante | Itens como responsável | Itens como revisor | Commits |
+|---|---|---|---|
+| Alexandre (AL) | c, d, README, montagem do relatório, trecho de IA no vídeo | a, b, e, f | 0 |
+| Davi (DA) | e, f, testes de laço, demo no vídeo | a, b, c, d | 0 |
+| Manuel (MA) | a, b, fundamentação teórica, arquitetura no vídeo | c, e, f, g | 4 |
