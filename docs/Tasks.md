@@ -24,23 +24,25 @@
 
 Status: ⬜ não iniciado · 🟡 em andamento · 🔍 em revisão · ✅ concluído
 
+
 ### Item a — Definição formal da linguagem (1,0)
 | Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
 |---|---|---|---|---|---|---|
 | Alfabeto, EBNF, tabela de precedência/associatividade | `docs/gramatica.md` | MA | AL | 🔍 | Sim (Claude Sonnet 5.5, rascunho) | `0203694` |
-| 5 exemplos comentados (válido + inválido léxico/sintático/semântico) | `docs/gramatica.md` | MA | DA | 🔍 | Sim | `0203694` |
-| Programa válido com while e for | `exemplos/programa_valido.ml` | MA | DA | ⬜ | | |
-| Programa inválido com laço mal formado | `exemplos/programa_invalido.ml` | MA | AL | ⬜ | | |
-| Fechar as decisões em aberto (`/* */`, comparação não associativa, sem menos unário) | `docs/gramatica.md` | **Todos** | — | ⬜ | | |
+| 5 exemplos comentados (válido + inválido léxico/sintático/semântico) | `docs/gramatica.md` | MA | DA | 🔍 | Sim (Claude Sonnet 5.5 ,analise da documentação) | `0203694` |
+| Programa válido com while e for | `exemplos/programa_valido.ml` | MA | DA |  🔍| 	Sim (ChatGPT, apoio e revisão)| |
+| Programa inválido com laço mal formado | `exemplos/programa_invalido.ml` | MA | AL | 🔍 |	Sim (ChatGPT, apoio e revisão) | |
+| Fechar as decisões em aberto (`/* */`, comparação não associativa, sem menos unário) | `docs/gramatica.md` | **Todos** | — | 🟡 | Sim (Claude Sonnet 5.5 e ChatGPT,revisão) | |
 
 ### Item b — Lexer (1,0)
 | Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
 |---|---|---|---|---|---|---|
-| Implementação do lexer | `src/lexer.py` | MA | AL | ⬜ | | |
-| Tabela de tokens e tabela de transições (seção "Lexer") | `docs/gramatica.md` | MA | AL | 🔍 | Sim | `0203694` |
-| Testes válidos | `tests/validos/test_lexer_valido.py` | MA | DA | ⬜ | | |
-| Testes inválidos (`@`, `1x`, comentário não fechado) | `tests/invalidos/test_lexer_invalido.py` | MA | DA | ⬜ | | |
-| Relatório: seção "Análise léxica" (ER → AFN → AFD → lexer) | `docs/relatorio.pdf` | MA | AL | ⬜ | | |
+| Implementação do lexer | `src/lexer.py` | MA | AL | 🔍 | Sim (Claude Sonnet 5.5,apoio nos teste)| |
+| Tabela de tokens e tabela de transições (seção "Lexer") | `docs/gramatica.md` | MA | AL | 🔍 | Sim  (Claude Sonnet 5.5,analise da documentação )| `0203694` |
+| Testes válidos | `tests/validos/test_lexer_valido.py` | MA | DA | 🔍 | Sim (Claude Sonnet 5.5,apoio nos testes)| |
+| Testes inválidos (`@`, `1x`, comentário não fechado) | `tests/invalidos/test_lexer_invalido.py` | MA | DA | 🔍 |Sim (Claude Sonnet 5.5,apoio nos testes)  | |
+| Relatório: seção "Análise léxica" (ER → AFN → AFD → lexer) | `docs/relatorio.pdf` | MA | AL | 🔍 | 	Sim (ChatGPT, apoio na documentação)| |
+
 
 ### Item c — Parser descendente recursivo (1,0)
 | Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |

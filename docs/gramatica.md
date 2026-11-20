@@ -149,7 +149,7 @@ Estados dos comentários (colunas próprias, pois a classe WS se divide):
 | q_bc (dentro de `/*`) | q_bc | q_bcs | q_bc | **q_err** (não fechado) | q_bc |
 | q_bcs (viu `*` em `/*`) | q_bc | q_bcs | fim: descarta | **q_err** (não fechado) | q_bc |
 
-### 5.2 Rascunho da justificativa formal (para o relatório)
+### 5.2 justificativa
 
 1. Cada categoria de token tem padrão **regular** (tabela da seção 2).
 2. Pelo teorema de Kleene, toda expressão regular tem um AFN equivalente (construção de
