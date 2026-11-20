@@ -30,18 +30,18 @@ Status: ⬜ não iniciado · 🟡 em andamento · 🔍 em revisão · ✅ conclu
 |---|---|---|---|---|---|---|
 | Alfabeto, EBNF, tabela de precedência/associatividade | `docs/gramatica.md` | MA | AL | 🔍 | Sim (Claude Sonnet 5.5, rascunho) | `0203694` |
 | 5 exemplos comentados (válido + inválido léxico/sintático/semântico) | `docs/gramatica.md` | MA | DA | 🔍 | Sim (Claude Sonnet 5.5 ,analise da documentação) | `0203694` |
-| Programa válido com while e for | `exemplos/programa_valido.ml` | MA | DA |  🔍| 	Sim (ChatGPT, apoio e revisão)| |
-| Programa inválido com laço mal formado | `exemplos/programa_invalido.ml` | MA | AL | 🔍 |	Sim (ChatGPT, apoio e revisão) | |
-| Fechar as decisões em aberto (`/* */`, comparação não associativa, sem menos unário) | `docs/gramatica.md` | **Todos** | — | 🟡 | Sim (Claude Sonnet 5.5 e ChatGPT,revisão) | |
+| Programa válido com while e for | `exemplos/programa_valido.ml` | MA | DA |  🔍| 	Sim (ChatGPT, apoio e revisão)|`c48e250` |
+| Programa inválido com laço mal formado | `exemplos/programa_invalido.ml` | MA | AL | 🔍 |	Sim (ChatGPT, apoio e revisão) | `c48e250` |
+| Fechar as decisões em aberto (`/* */`, comparação não associativa, sem menos unário) | `docs/gramatica.md` | **Todos** | — | 🟡 | Sim (Claude Sonnet 5.5 e ChatGPT,revisão) |  `c48e250` |
 
 ### Item b — Lexer (1,0)
 | Tarefa | Arquivo | Responsável | Revisor | Status | IA usada? | Commit |
 |---|---|---|---|---|---|---|
-| Implementação do lexer | `src/lexer.py` | MA | AL | 🔍 | Sim (Claude Sonnet 5.5,apoio nos teste)| |
+| Implementação do lexer | `src/lexer.py` | MA | AL | 🔍 | Sim (Claude Sonnet 5.5,apoio nos teste)|`c48e250` |
 | Tabela de tokens e tabela de transições (seção "Lexer") | `docs/gramatica.md` | MA | AL | 🔍 | Sim  (Claude Sonnet 5.5,analise da documentação )| `0203694` |
-| Testes válidos | `tests/validos/test_lexer_valido.py` | MA | DA | 🔍 | Sim (Claude Sonnet 5.5,apoio nos testes)| |
-| Testes inválidos (`@`, `1x`, comentário não fechado) | `tests/invalidos/test_lexer_invalido.py` | MA | DA | 🔍 |Sim (Claude Sonnet 5.5,apoio nos testes)  | |
-| Relatório: seção "Análise léxica" (ER → AFN → AFD → lexer) | `docs/relatorio.pdf` | MA | AL | 🔍 | 	Sim (ChatGPT, apoio na documentação)| |
+| Testes válidos | `tests/validos/test_lexer_valido.py` | MA | DA | 🔍 | Sim (Claude Sonnet 5.5,apoio nos testes)|`c48e250` |
+| Testes inválidos (`@`, `1x`, comentário não fechado) | `tests/invalidos/test_lexer_invalido.py` | MA | DA | 🔍 |Sim (Claude Sonnet 5.5,apoio nos testes)  | `c48e250`  |
+| Relatório: seção "Análise léxica" (ER → AFN → AFD → lexer) | `docs/relatorio.pdf` | MA | AL | 🔍 | 	Sim (ChatGPT, apoio na documentação)| `c48e250` |
 
 
 ### Item c — Parser descendente recursivo (1,0)
